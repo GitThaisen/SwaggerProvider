@@ -168,6 +168,6 @@
           <Paket>True</Paket>
         </Reference>
       </ItemGroup>
-</When>
+    </When>
   </Choose>
 </Project>

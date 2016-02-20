@@ -1,2 +1,3 @@
 Newtonsoft.Json
-YamlDotNet
+NodaTime
+NodaTime.Serialization.JsonNet

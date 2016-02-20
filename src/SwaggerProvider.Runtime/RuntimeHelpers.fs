@@ -4,6 +4,11 @@ open System
 open Newtonsoft.Json
 open Microsoft.FSharp.Reflection
 
+#if NodaTimeDebug
+open NodaTime
+open NodaTime.Serialization.JsonNet
+#endif
+
 /// Serializer for serializing the F# option types.
 // https://github.com/eulerfx/JsonNet.FSharp
 type private OptionConverter() =
@@ -88,5 +93,12 @@ module RuntimeHelpers =
     let deserialize =
         let settings = JsonSerializerSettings(NullValueHandling = NullValueHandling.Ignore, Formatting = Formatting.Indented)
         settings.Converters.Add(new OptionConverter () :> JsonConverter)
+        #if NodaTimeDebug
+        let noda_settings = settings.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb)
+        fun value (retTy:Type) ->
+            JsonConvert.DeserializeObject(value, retTy, noda_settings)
+        #else
         fun value (retTy:Type) ->
             JsonConvert.DeserializeObject(value, retTy, settings)
+        #endif
+
