@@ -1,6 +1,7 @@
 source https://nuget.org/api/v2
 
 nuget Newtonsoft.Json >= 8.0.2
+nuget NodaTime.Serialization.JsonNet
 nuget YamlDotNet
 
 github fsharp/FSharp.Data src/Net/UriUtils.fs
