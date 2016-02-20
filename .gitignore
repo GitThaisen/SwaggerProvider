@@ -186,4 +186,5 @@ docs/content/release-notes.md
 .fake/
 .vs/
 *.svclog
+NodaTime/
 TestResult.xml

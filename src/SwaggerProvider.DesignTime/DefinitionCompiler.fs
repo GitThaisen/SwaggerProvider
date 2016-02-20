@@ -6,6 +6,11 @@ open SwaggerProvider.Internal.Schema
 open Microsoft.FSharp.Quotations
 open System
 
+#if NODATIME
+open NodaTime
+#endif
+
+
 /// Object for compiling definitions.
 type DefinitionCompiler (schema:SwaggerObject) =
     let definitions = Map.ofSeq schema.Definitions
@@ -59,8 +64,15 @@ type DefinitionCompiler (schema:SwaggerObject) =
         | Double, true    -> typeof<double>
         | Double, false   -> typeof<Option<double>>
         | String, _       -> typeof<string>
+        #if NODATIME
+        | Date, true  -> typeof<LocalDate>
+        | DateTime, true   -> typeof<ZonedDateTime>
+        | Date, false -> typeof<Option<LocalDate>>
+        | DateTime, false  -> typeof<Option<ZonedDateTime>>
+        #else
         | Date, true  | DateTime, true   -> typeof<DateTime>
         | Date, false | DateTime, false  -> typeof<Option<DateTime>>
+        #endif
         | File, _         -> typeof<byte>.MakeArrayType(1)
         | Enum _, _       -> typeof<string> //TODO: find better type
         | Array eTy, _    -> (compileSchemaObject (uniqueName tyName "Item") eTy true).MakeArrayType()

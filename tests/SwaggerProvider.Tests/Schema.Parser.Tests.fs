@@ -138,4 +138,3 @@ let ``Parse Json Schema`` (url:string) =
 
 [<Test; TestCaseSource("ApisGuruYamlSchemaUrls")>]
 let ``Parse Yaml Schema`` url =
-    parserTestBody (SwaggerProvider.YamlParser.Parse >> YamlNodeAdapter) url

@@ -22,6 +22,8 @@ open System.IO
 open SourceLink
 #endif
 
+MSBuildDefaults <- { MSBuildDefaults with NodeReuse = false} 
+
 // --------------------------------------------------------------------------------------
 // START TODO: Provide project-specific details below
 // --------------------------------------------------------------------------------------
@@ -122,6 +124,12 @@ Target "CleanDocs" (fun _ ->
 Target "Build" (fun _ ->
     !! solutionFile
     |> MSBuildRelease "" "Rebuild"
+    |> ignore
+)
+
+Target "BuildNodaTime" (fun _ ->
+    !! solutionFile
+    |> MSBuild "NodaTime" "Rebuild" [ "Configuration", "NodaTimeDebug" ] 
     |> ignore
 )
 
@@ -350,6 +358,7 @@ Target "All" DoNothing
 "Clean"
   ==> "AssemblyInfo"
   ==> "Build"
+  ==> "BuildNodaTime"
   ==> "CopyBinaries"
   ==> "StartServer"
   ==> "BuildTests"

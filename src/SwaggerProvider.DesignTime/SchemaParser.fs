@@ -2,7 +2,9 @@
 
 open System
 open SwaggerProvider.Internal.Schema
-
+#if NodaTimeDebug
+open NodaTime
+#endif
 module Parser =
 
     // Type that hold parsing context to resolve `$ref`s

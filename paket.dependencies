@@ -25,6 +25,8 @@ group Build
 	nuget FAKE
 	nuget FSharp.Formatting
 	nuget SourceLink.Fake
+	nuget NodaTime
+	nuget NodaTime.Serialization.JsonNet
 
 	github fsharp/FAKE modules/Octokit/Octokit.fsx
 
