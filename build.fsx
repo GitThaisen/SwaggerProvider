@@ -21,6 +21,8 @@ open System.IO
 open SourceLink
 #endif
 
+MSBuildDefaults <- { MSBuildDefaults with NodeReuse = false} 
+
 // --------------------------------------------------------------------------------------
 // START TODO: Provide project-specific details below
 // --------------------------------------------------------------------------------------
