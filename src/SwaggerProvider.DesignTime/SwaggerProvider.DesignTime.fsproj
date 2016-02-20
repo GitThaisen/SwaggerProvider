@@ -15,6 +15,21 @@
     <Name>SwaggerProvider.DesignTime</Name>
     <TargetFrameworkProfile />
   </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == 'NodaTimeDebug' ">NodaTimeDebug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>dbe9aa3e-ab4c-4fe3-915b-886cc6e6a88d</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin\DebugNodaTime\</OutputPath>
+    <RootNamespace>SwaggerProvider.DesignTime</RootNamespace>
+    <AssemblyName>SwaggerProvider.DesignTime</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Name>SwaggerProvider.DesignTime</Name>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
