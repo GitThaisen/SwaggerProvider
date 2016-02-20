@@ -59,6 +59,9 @@
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
+    <Reference Include="YamlDotNet">
+      <HintPath>..\..\packages\YamlDotNet\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\YamlDotNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Common\AssemblyInfo.fs">
