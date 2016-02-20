@@ -124,6 +124,12 @@ Target "Build" (fun _ ->
     |> ignore
 )
 
+Target "BuildNodaTime" (fun _ ->
+    !! solutionFile
+    |> MSBuild "NodaTime" "Rebuild" [ "Configuration", "NodaTimeDebug" ] 
+    |> ignore
+)
+
 Target "StartServer" (fun _ ->
     ProcessHelper.StartProcess (fun prInfo ->
         prInfo.FileName <- "tests/Swashbuckle.OWIN.Server/bin/Release/Swashbuckle.OWIN.Server.exe")
@@ -350,6 +356,7 @@ Target "All" DoNothing
 "Clean"
   ==> "AssemblyInfo"
   ==> "Build"
+  ==> "BuildNodaTime"
   ==> "CopyBinaries"
   ==> "StartServer"
   ==> "BuildTests"
