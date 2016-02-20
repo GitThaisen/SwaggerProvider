@@ -1,8 +1,6 @@
 source https://nuget.org/api/v2
 
 nuget Newtonsoft.Json >= 8.0.2
-nuget NodaTime
-nuget NodaTime.Serialization.JsonNet
 nuget YamlDotNet
 
 github fsharp/FSharp.Data src/Net/UriUtils.fs
@@ -27,6 +25,8 @@ group Build
 	nuget FAKE
 	nuget FSharp.Formatting
 	nuget SourceLink.Fake
+	nuget NodaTime
+	nuget NodaTime.Serialization.JsonNet
 
 	github fsharp/FAKE modules/Octokit/Octokit.fsx
 
