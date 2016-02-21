@@ -33,7 +33,7 @@
     <Optimize>false</Optimize>
     <Tailcalls>false</Tailcalls>
     <OutputPath>bin\NodaTime\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;NodaTime;NodaTimeDebug</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NodaTimeDebug</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <DocumentationFile>bin\NodaTimeDebug\SwaggerProvider.Runtime.XML</DocumentationFile>
     <StartAction>Program</StartAction>

@@ -91,13 +91,8 @@ module Parser =
                         | "number" when format = "int32" -> Some Int32
                         | "number" when format = "int64" -> Some Int64
                         | "number" -> Some Double
-                        #if NodaTimeDebug
-                        | "string" when format = "date" -> Some NodaTime.LocalDate
-                        | "string" when format = "date-time" -> Some NodaTime.ZonedDateTime
-                        #else
                         | "string" when format = "date" -> Some Date
                         | "string" when format = "date-time" -> Some DateTime
-                        #endif
                         | "string" -> Some String
                         | "file" -> Some File
                         | _ -> None
