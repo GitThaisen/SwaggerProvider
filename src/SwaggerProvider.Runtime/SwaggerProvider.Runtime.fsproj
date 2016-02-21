@@ -33,7 +33,7 @@
     <Optimize>false</Optimize>
     <Tailcalls>false</Tailcalls>
     <OutputPath>bin\NodaTime\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NodaTimeDebug</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NODATIME</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <DocumentationFile>bin\NodaTimeDebug\SwaggerProvider.Runtime.XML</DocumentationFile>
     <StartAction>Program</StartAction>
@@ -86,6 +86,9 @@
     <StartProgram>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe</StartProgram>
     <StartArguments>d:\GitHub\SwaggerProvider\SwaggerProvider.TestsAndDocs.sln</StartArguments>
     <OutputPath>bin\NodaTimeDebug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'NodaTimeDebug|AnyCPU' ">
+    <DefineConstants>NODATIME</DefineConstants>
   </PropertyGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '11.0'">

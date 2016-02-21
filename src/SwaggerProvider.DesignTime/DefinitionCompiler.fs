@@ -6,7 +6,7 @@ open SwaggerProvider.Internal.Schema
 open Microsoft.FSharp.Quotations
 open System
 
-#if NodaTimeDebug
+#if NODATIME
 open NodaTime
 #endif
 
@@ -52,7 +52,7 @@ type DefinitionCompiler (schema:SwaggerObject) =
         | Double, true    -> typeof<double>
         | Double, false   -> typeof<Option<double>>
         | String, _       -> typeof<string>
-        #if NodaTimeDebug
+        #if NODATIME
         | Date, true  -> typeof<LocalDate>
         | DateTime, true   -> typeof<ZonedDateTime>
         | Date, false -> typeof<Option<LocalDate>>
